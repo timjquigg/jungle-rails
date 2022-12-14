@@ -1,6 +1,18 @@
 class OrdersController < ApplicationController
 
   def show
+    @line_items = {}
+    LineItem.where('order_id = ?', params[:id]).each do |item|
+      product = Product.find(item[:product_id])
+      @line_items[item[:id]] = {
+        id: item[:product_id],
+        name: product[:name],
+        description: product[:description],
+        image: product[:image],
+        quantity: item[:quantity],
+        price: item[:item_price_cents],
+      }
+    end
     @order = Order.find(params[:id])
   end
 
