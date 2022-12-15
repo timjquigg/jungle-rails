@@ -43,6 +43,29 @@
               <%= link_to "About", about_path, class: "nav-link"
                %>
             </li>
+          </ul>
+            <% if current_user %>
+              <!-- current_user will return true if a user is logged in -->
+              <span class="navbar-text"><%= "Logged in as #{current_user.email}" %></span>
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class=Nav-item">
+                  <%= link_to 'Log Out', logout_path, method: :delete, class: "nav-link" %>
+                </li>
+            <% else %>
+              <!-- not logged in -->
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <%= link_to 'Log In', login_path, class: "nav-link"  %>
+                </li>
+                  <span class="navbar-text">
+                  or
+                  </span>
+                  <li class="nav-item">
+                  <%= link_to 'Sign Up', new_user_path, class: "nav-link" %>
+                  </li>
+              </li>
+          <% end %>
+          <hr>
           <%# </ul>
         </li> %>
       </ul>
