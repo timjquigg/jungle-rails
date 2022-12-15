@@ -16,8 +16,8 @@
       <tbody>
         <tr>
           <th scope="row">Totals</th>
-          <td><a href="/admin/products"><%= @category_count %></a></td>
-          <td><a href="/admin/products"><%= @product_count %></a></td>
+          <td><%= link_to @category_count, [:admin, :products] %></td>
+          <td><%= link_to @product_count, [:admin, :products] %></a></td>
         </tr>
       </tbody>
     </table>
