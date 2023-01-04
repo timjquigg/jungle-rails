@@ -1,17 +1,11 @@
-describe("home page", () => {
+describe("add to cart", () => {
   beforeEach(() => {
     //
   });
 
-  it("displays the home page", () => {
+  it("Displays the home page and shows the number of items in the cart as 0", () => {
     cy.visit("http://localhost:3000");
-  });
-
-  it("There is products on the page", () => {
     cy.get(".products article").should("be.visible");
-  });
-
-  it("Shows the number of items in the cart as 0", () => {
     cy.contains("My Cart (0)").should("be.visible");
   });
 

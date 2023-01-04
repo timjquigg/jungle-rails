@@ -1,17 +1,11 @@
-describe("home page", () => {
+describe("product details", () => {
   beforeEach(() => {
     //
   });
 
-  it("displays the home page", () => {
+  it("Displays the home page and a user can click on a product", () => {
     cy.visit("http://localhost:3000");
-  });
-
-  it("There is products on the page", () => {
     cy.get(".products article").should("be.visible");
-  });
-
-  it("The user can click on a product", () => {
     cy.get(".products article").first().click();
   });
 
